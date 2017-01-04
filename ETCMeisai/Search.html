@@ -1,0 +1,819 @@
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<HTML lang="ja">
+    <HEAD>
+        
+        
+        
+        
+        
+        
+        <META http-equiv="Content-Type" content="text/html; charset=x-euc-jp">
+            <META http-equiv="Content-Style-Type" content="text/css;charset=x-euc-jp">
+                <META http-equiv="Content-Script-Type" content="text/javascript">
+                    <link href="/etcris/css/common.css?r=7.40" rel="stylesheet" type="text/css" >
+                        <SCRIPT language="JavaScript" type="text/javascript" src="/etcris/js/common.js"></SCRIPT>
+                        <TITLE>ＥＴＣ利用照会サービス</TITLE>
+                        
+                        <SCRIPT language="JavaScript" type="text/javascript" src="/etcris/js/RisRiyoMeisaiKensaku.js"></SCRIPT>
+                        </HEAD>
+    <BODY onLoad="initFocus('frm');chgSyaryo('sokoKbn','syaryo_bgc','syaryo_txt','sharyoNo');"><CENTER>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <DIV class="header">
+            <DIV class="title">
+                <A href="JavaScript:void(0);" onclick="goPage('http://www.etc-meisai.jp/index.html'); return false;"><IMG class="etc-logo" src="/etcris/images/head_etc_logo.gif" alt="ETC"></A>
+                <IMG src="/etcris/images/head_title.gif" alt="ＥＴＣ利用照会サービス">
+                    </DIV>
+            <DIV class="contents">
+                <UL>
+                    
+                    <LI><A href="JavaScript:void(0);" onclick="goPage('http://www.etc-meisai.jp/index.html'); return false;">トップページ</A></LI>
+                    
+                    
+                    
+                    
+                    
+                    
+                    <LI><A href="JavaScript:void(0);" onclick="openPage('http://www.etc-meisai.jp/faq/01.html#1','W_FAQ'); return false;">ご質問</A></LI>
+                    
+                </UL>
+            </DIV>
+        </DIV>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <DIV class="userMenu">
+            
+            
+            
+            <UL>
+                <LI><A href="JavaScript:void(0);" onClick="submitPage('frm','/etc/R;jsessionid=0001uOs_ByWXBW66LGMJxLsCrIx:15fqqsc48?funccode=1013000000&nextfunc=1013000000'); return false;"><SPAN>利用明細の表示</SPAN></A></LI>
+                <LI><A href="JavaScript:void(0);" onClick="submitPage('frm','/etc/R;jsessionid=0001uOs_ByWXBW66LGMJxLsCrIx:15fqqsc48?funccode=1014000000&nextfunc=1014000000'); return false;"><SPAN>検索条件の指定</SPAN></A></LI>
+                <LI><A href="JavaScript:void(0);" onClick="submitPage('frm','/etc/R;jsessionid=0001uOs_ByWXBW66LGMJxLsCrIx:15fqqsc48?funccode=1015000000&nextfunc=1015000000'); return false;"><SPAN>ユーザー情報変更</SPAN></A></LI>
+                <LI><A href="JavaScript:void(0);" onClick="submitPage('frm','/etc/R;jsessionid=0001uOs_ByWXBW66LGMJxLsCrIx:15fqqsc48?funccode=1016000000&nextfunc=1016000000'); return false;"><SPAN>カードの追加登録／削除</SPAN></A></LI>
+                <LI><A href="JavaScript:void(0);" onClick="submitPage('frm','/etc/R;jsessionid=0001uOs_ByWXBW66LGMJxLsCrIx:15fqqsc48?funccode=1017000000&nextfunc=1017000000'); return false;"><SPAN>サービスのご解約</SPAN></A></LI>
+                <LI class="end"><A href="JavaScript:void(0);" onClick="submitPage('frm','/etc/R;jsessionid=0001uOs_ByWXBW66LGMJxLsCrIx:15fqqsc48?funccode=1021000000&nextfunc=1021000000'); return false;"><SPAN>ログアウト</SPAN></A></LI>
+            </UL>
+            
+            
+            
+        </DIV>
+        
+        
+        
+        
+        <DIV class="contentsWrapper">
+            
+            <TABLE class="contents" cellpadding="0" cellspacing="0">
+                <TR>
+                    
+                    <TD>
+                        <H2 class="title">利用明細検索</H2>
+                        <P class="normal">以下の項目を入力して、「検索」ボタンを押してください。<BR>
+                        利用明細の表示条件の既定値として保存する場合には、「この条件を記憶する」ボタンを押してください。<BR>
+                        ※ただし、利用年月日は保存の対象外となります。
+                        </P>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <NOSCRIPT><TABLE class="jsalert"><TR class="jsalert"><TD class="jsalert"><IMG src="/etcris/images/alert.gif"/><SPAN class="jsalert">本サイトでは、JavaScriptを使用しています。JavaScriptの使用をONにしてください。</SPAN></TD></TR></TABLE></NOSCRIPT>
+                        
+                        <BR>
+                        <DIV align="center">
+                            <FORM name="frm" onSubmit="return false;">
+                                <TABLE width="90%" cellpadding="0" cellspacing="0">
+                                    <TR>
+                                        <TD class="caption_top caption_left caption_right" align="center" width="20%" nowrap rowspan="2">
+                                            <span class="caption">利用年月日</span>
+                                        </TD>
+                                        <TD class="item_top item_right">
+                                            <TABLE cellpadding="0" cellspacing="5">
+                                                <TR>
+                                                    <TD>
+                                                        <SELECT class="text" name="fromYYYY">
+                                                            
+                                                            
+                                                            <OPTION value="2015" selected>２０１５</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="2016" >２０１６</OPTION>
+                                                            
+                                                        </SELECT>
+                                                        <SPAN class="normal2">年</SPAN>
+                                                    </TD>
+                                                    <TD>
+                                                        <SELECT class="text" name="fromMM">
+                                                            
+                                                            
+                                                            <OPTION value="01" >０１</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="02" >０２</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="03" >０３</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="04" >０４</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="05" >０５</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="06" >０６</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="07" >０７</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="08" selected>０８</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="09" >０９</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="10" >１０</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="11" >１１</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="12" >１２</OPTION>
+                                                            
+                                                        </SELECT>
+                                                        <SPAN class="normal2">月</SPAN>
+                                                    </TD>
+                                                    <TD>
+                                                        <SELECT class="text" name="fromDD">
+                                                            
+                                                            
+                                                            <OPTION value="01" >０１</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="02" >０２</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="03" >０３</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="04" >０４</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="05" >０５</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="06" selected>０６</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="07" >０７</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="08" >０８</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="09" >０９</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="10" >１０</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="11" >１１</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="12" >１２</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="13" >１３</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="14" >１４</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="15" >１５</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="16" >１６</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="17" >１７</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="18" >１８</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="19" >１９</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="20" >２０</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="21" >２１</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="22" >２２</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="23" >２３</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="24" >２４</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="25" >２５</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="26" >２６</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="27" >２７</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="28" >２８</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="29" >２９</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="30" >３０</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="31" >３１</OPTION>
+                                                            
+                                                        </SELECT>
+                                                        <SPAN class="normal2">日から</SPAN>
+                                                    </TD>
+                                                </TR>
+                                            </TABLE>
+                                            <TABLE cellpadding="0" cellspacing="5">
+                                                <TR>
+                                                    <TD>
+                                                        <SELECT class="text" name="toYYYY">
+                                                            
+                                                            
+                                                            <OPTION value="2015" >２０１５</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="2016" selected>２０１６</OPTION>
+                                                            
+                                                        </SELECT>
+                                                        <SPAN class="normal2">年</SPAN>
+                                                    </TD>
+                                                    <TD>
+                                                        <SELECT class="text" name="toMM">
+                                                            
+                                                            
+                                                            <OPTION value="01" >０１</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="02" >０２</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="03" >０３</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="04" >０４</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="05" >０５</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="06" >０６</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="07" >０７</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="08" >０８</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="09" >０９</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="10" >１０</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="11" selected>１１</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="12" >１２</OPTION>
+                                                            
+                                                        </SELECT>
+                                                        <SPAN class="normal2">月</SPAN>
+                                                    </TD>
+                                                    <TD>
+                                                        <SELECT class="text" name="toDD">
+                                                            
+                                                            
+                                                            <OPTION value="01" >０１</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="02" >０２</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="03" >０３</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="04" >０４</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="05" selected>０５</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="06" >０６</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="07" >０７</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="08" >０８</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="09" >０９</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="10" >１０</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="11" >１１</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="12" >１２</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="13" >１３</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="14" >１４</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="15" >１５</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="16" >１６</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="17" >１７</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="18" >１８</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="19" >１９</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="20" >２０</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="21" >２１</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="22" >２２</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="23" >２３</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="24" >２４</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="25" >２５</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="26" >２６</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="27" >２７</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="28" >２８</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="29" >２９</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="30" >３０</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="31" >３１</OPTION>
+                                                            
+                                                        </SELECT>
+                                                        <SPAN class="normal2">日まで</SPAN>
+                                                    </TD>
+                                                </TR>
+                                            </TABLE>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD class="item_top_sep1 item_right">
+                                            <TABLE cellpadding="0" cellspacing="5">
+                                                <TR>
+                                                    <TD valign="top">
+                                                        
+                                                        
+                                                        <SPAN class="attention_with_underline">※過去１５ヶ月間の明細を検索できます。</SPAN><BR>
+                                                        
+                                                    </TD>
+                                                </TR>
+                                            </TABLE>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD class="caption_top caption_left caption_right" align="center" nowrap>
+                                            <SPAN class="caption">走行区分</SPAN>
+                                        </TD>
+                                        <TD class="item_top item_right">
+                                            <TABLE cellpadding="0" cellspacing="5">
+                                                <TR>
+                                                    <TD>
+                                                        <INPUT name="sokoKbn" class="rdo" type="radio" value="0"      onFocus="chgSyaryo('sokoKbn','syaryo_bgc','syaryo_txt','sharyoNo');" onClick="chgSyaryo('sokoKbn','syaryo_bgc','syaryo_txt','sharyoNo');" checked /><span class="normal2">全て</SPAN>&nbsp;&nbsp;
+                                                    </TD>
+                                                    <TD>
+                                                        <INPUT name="sokoKbn" class="rdo" type="radio" value="1"    onFocus="chgSyaryo('sokoKbn','syaryo_bgc','syaryo_txt','sharyoNo');" onClick="chgSyaryo('sokoKbn','syaryo_bgc','syaryo_txt','sharyoNo');"  /><span class="normal2">ＥＴＣ無線走行のみ</SPAN>&nbsp;&nbsp;
+                                                    </TD>
+                                                    <TD>
+                                                        
+                                                        
+                                                        <INPUT name="sokoKbn" class="rdo" type="radio" value="2" onFocus="chgSyaryo('sokoKbn','syaryo_bgc','syaryo_txt','sharyoNo');" onClick="chgSyaryo('sokoKbn','syaryo_bgc','syaryo_txt','sharyoNo');"  /><span class="normal2">ＥＴＣカード手渡しのみ</SPAN>
+                                                        
+                                                    </TD>
+                                                </TR>
+                                            </TABLE>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD class="caption_top caption_left caption_right" align="center" nowrap>
+                                            <SPAN class="caption">車両番号</span><BR>
+                                            <SPAN class="normal">(ナンバーの下4桁)</SPAN>
+                                        </TD>
+                                        <TD id="syaryo_bgc" class="item_top item_right">
+                                            <TABLE cellpadding="0" cellspacing="5">
+                                                <TR>
+                                                    <TD>
+                                                        
+                                                        <INPUT class="text inactive sya" name="sharyoNo" type="text" maxlength="4" value="">&nbsp;&nbsp;
+                                                            
+                                                            </TD>
+                                                    <TD>
+                                                        <TABLE cellpadding="0" cellspacing="0">
+                                                            <TR>
+                                                                <TD valign="top">
+                                                                    <SPAN class="normal">例：</SPAN>
+                                                                </TD>
+                                                                <TD valign="top">
+                                                                    <SPAN class="normal">「・1-23」の場合「123」（頭に0をつけないでください）</SPAN>
+                                                                </TD>
+                                                            </TR>
+                                                            <TR>
+                                                                <TD valign="top">
+                                                                    <SPAN class="normal"><a name="syaryo_txt" class="noline">※</a></SPAN>
+                                                                </TD>
+                                                                <TD valign="top">
+                                                                    
+                                                                    
+                                                                    <SPAN class="normal"><a name="syaryo_txt" class="noline">走行区分が「ＥＴＣ無線走行のみ」を選択した場合、ご利用いただいたお車（車両番号）の指定が可能です。</a></SPAN>
+                                                                    
+                                                                </TD>
+                                                            </TR>
+                                                            
+                                                            
+                                                            
+                                                            <TR>
+                                                                <TD valign="top">
+                                                                    <SPAN class="normal">※</SPAN>
+                                                                </TD>
+                                                                <TD valign="top">
+                                                                    <SPAN class="normal">ＥＴＣ車載器にセットアップされた車両番号が検索の対象になります。</SPAN>
+                                                                </TD>
+                                                            </TR>
+                                                            
+                                                            <TR>
+                                                                <TD valign="top">
+                                                                    <SPAN class="normal">※</SPAN>
+                                                                </TD>
+                                                                <TD valign="top">
+                                                                    <SPAN class="normal">車両を入れ替え、車両番号を変更された場合、車載器の再セットアップを行っていただく必要があります。</SPAN>
+                                                                </TD>
+                                                            </TR>
+                                                            
+                                                        </TABLE>
+                                                    </TD>
+                                                </TR>
+                                            </TABLE>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD class="caption_top caption_left caption_right" align="center" nowrap>
+                                            <SPAN class="caption">月の区切り日<BR>の選択</SPAN>
+                                        </TD>
+                                        <TD class="item_top item_right">
+                                            <TABLE width="100%" cellpadding="0" cellspacing="5">
+                                                <TR>
+                                                    <TD>
+                                                        <SELECT class="text" name="kuguriDay">
+                                                            <OPTION value="0" selected>月末</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="1" >０１</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="2" >０２</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="3" >０３</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="4" >０４</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="5" >０５</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="6" >０６</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="7" >０７</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="8" >０８</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="9" >０９</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="10" >１０</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="11" >１１</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="12" >１２</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="13" >１３</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="14" >１４</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="15" >１５</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="16" >１６</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="17" >１７</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="18" >１８</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="19" >１９</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="20" >２０</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="21" >２１</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="22" >２２</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="23" >２３</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="24" >２４</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="25" >２５</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="26" >２６</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="27" >２７</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="28" >２８</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="29" >２９</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="30" >３０</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="31" >３１</OPTION>
+                                                            
+                                                        </SELECT>
+                                                        <SPAN class="normal2">日区切り</SPAN>
+                                                    </TD>
+                                                    
+                                                    <TD>
+                                                        <TABLE>
+                                                            <TR>
+                                                                <TD valign="top">
+                                                                    <SPAN class="normal">例：</SPAN>
+                                                                </TD>
+                                                                <TD valign="top">
+                                                                    <SPAN class="normal">月末日区切り　→　1日～月末までを当月分として表示</SPAN>
+                                                                </TD>
+                                                            </TR>
+                                                            <TR>
+                                                                <TD valign="top">
+                                                                    <SPAN class="normal">&nbsp;</SPAN>
+                                                                </TD>
+                                                                <TD valign="top">
+                                                                    <SPAN class="normal">20日区切り　→　前月21日～当月20日までを当月分として表示</SPAN>
+                                                                </TD>
+                                                            </TR>
+                                                        </TABLE>
+                                                    </TD>
+                                                    
+                                                </TR>
+                                            </TABLE>
+                                        </TD>
+                                    </TR>
+                                    
+                                    <TR>
+                                        <TD class="caption_top caption_left caption_right" align="center" nowrap>
+                                            <SPAN class="caption">１ページの表示件数</SPAN>
+                                        </TD>
+                                        <TD class="item_top item_right">
+                                            <TABLE width="100%" cellpadding="0" cellspacing="5">
+                                                <TR>
+                                                    <TD>
+                                                        <SELECT class="text" name="hyojiCnt">
+                                                            
+                                                            
+                                                            <OPTION value="10" selected>１０</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="20" >２０</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="30" >３０</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="40" >４０</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="50" >５０</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="60" >６０</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="70" >７０</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="80" >８０</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="90" >９０</OPTION>
+                                                            
+                                                            
+                                                            <OPTION value="100" >１００</OPTION>
+                                                            
+                                                        </SELECT>
+                                                        <SPAN class="normal2">件</SPAN>
+                                                    </TD>
+                                                </TR>
+                                            </TABLE>
+                                        </TD>
+                                    </TR>
+                                    
+                                    <TR>
+                                        <TD class="caption_top caption_bottom caption_left caption_right" align="center" nowrap>
+                                            <SPAN class="caption">表示対象の<BR>ＥＴＣカード番号</span>
+                                        </TD>
+                                        <TD class="item_top item_bottom item_right">
+                                            <TABLE width="100%" cellpadding="0" cellspacing="5">
+                                                
+                                                <TR>
+                                                    <TD>
+                                                        <TABLE width="90%" cellpadding="0" cellspacing="0">
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            <TR>
+                                                                <TD>
+                                                                    
+                                                                    <SPAN class="normal2">***********02739871</SPAN> 
+                                                                    
+                                                                </TD>
+                                                                
+                                                            </TR>
+                                                            
+                                                        </TABLE>
+                                                    </TD>
+                                                </TR>
+                                            </TABLE>
+                                        </TD>
+                                    </TR>
+                                </TABLE>
+                                <BR>
+                                <TABLE width="90%" cellpadding="0" cellspacing="0">
+                                    <TR>
+                                        <TD align="right">
+                                            
+                                            
+                                            <INPUT type="button" class="btn" name="focusTarget_Save" value="この条件を記憶する" onClick="submitSave('hyojiCard', 'frm', '/etc/R;jsessionid=0001uOs_ByWXBW66LGMJxLsCrIx:15fqqsc48?funccode=1014000000&nextfunc=1014100000');">&nbsp;&nbsp;
+                                                
+                                                <INPUT type="button" class="btn" name="focusTarget" value="  検索  " onClick="submitKensaku('hyojiCard', 'frm', '/etc/R;jsessionid=0001uOs_ByWXBW66LGMJxLsCrIx:15fqqsc48?funccode=1014000000&nextfunc=1013000000');">
+                                                    </TD>
+                                    </TR>
+                                    
+                                    <INPUT type="hidden" name="p" value="9f3a9fc7eca6d3554a5c39e226b1e6bd74b20109982a7bdf"></INPUT>
+                                    
+                                </TABLE>
+                            </FORM>
+                        </DIV>
+                    </TD>
+                </TR>
+            </TABLE>
+            
+        </DIV>
+        <DIV class="contentsbottom">
+            <DIV class="goTop"><IMG src="/etcris/images/pagetop_icon.gif" alt=""><SPAN class="pagetop"><A href="#">&nbsp;ページのトップへ</A></SPAN></DIV>
+            <DIV><IMG src="/etcris/images/contents_btm.jpg" alt=""></DIV>
+        </DIV>
+        
+        
+        
+        
+        
+        
+        
+        
+        <DIV class="footer">
+            <DIV class="left">
+                
+                
+                <P>
+                <IMG src="/etcris/images/head_listmark.gif" align="top">
+                    
+                    <A href="JavaScript:void(0);" onclick="openPage('http://www.etc-meisai.jp/rules.html','W_KITEI');">利用規程</A>
+                    
+                    <IMG src="/etcris/images/head_listmark.gif" align="top">
+                        <A href="JavaScript:void(0);" onclick="openPage('http://www.etc-meisai.jp/privacy.html','W_PRIVACY');">プライバシーポリシー</A>
+                        </P>
+                        <P>通信データは、SSLにより暗号化されております。</P>
+                        </DIV>
+            <DIV class="right">
+                
+                
+                
+                <P class="copyright-tit">Copyright(C) 2011</P>
+                <P class="copyright-text">East Nippon Expressway Company Limited,<BR>
+                Metropolitan Expressway Company Limited,<BR>
+                Central Nippon Expressway Company Limited,<BR>
+                West Nippon Expressway Company Limited,<BR>
+                Hanshin Expressway Company Limited,<BR>
+                Honshu-Shikoku Bridge Expressway Company Limited. All Rights Reserved.</P>
+                
+            </DIV>
+        </DIV>
+        
+        <SCRIPT language="JavaScript" type="text/javascript" src="/etcris/js/submit.js"></SCRIPT>
+        
+        
+        
+        
+    </CENTER></BODY>
+</HTML>
